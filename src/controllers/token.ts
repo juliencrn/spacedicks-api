@@ -70,6 +70,6 @@ function formatAttributes(attributes: Record<TraitName, number>): OpenSeaAttribu
     ["Special", getSpecial(attributes.special).name],
   ]
   return mapTitleToAttributes
-    .filter(([, value]) => !!value)
+    .filter(([, value]) => value !== "Empty")
     .map(([trait_type, value]) => ({ trait_type, value }))
 }
