@@ -7,6 +7,7 @@ import generateSVG, { TraitName } from '../svg'
 import { isNumeric, validateAttributes } from './utils'
 import { uploadSVG } from '../ipfs.storage'
 import CryptoDicks from '../contracts/CryptoDicks.json'
+import { getArm, getBackground, getClothe, getEye, getHat, getMouse, getSkin, getSpecial } from '../svg/utils'
 
 // Instantiate the web3
 const web3Provider = new Web3.providers.HttpProvider(RPC_URL)
@@ -55,18 +56,18 @@ export async function getTokenMetadata(req: Request, res: Response) {
   }
 }
 
-type OpenSeaAttribute = { trait_type: string; value: number }
+type OpenSeaAttribute = { trait_type: string; value: string }
 
 function formatAttributes(attributes: Record<TraitName, number>): OpenSeaAttribute[] {
-  const mapTitleToAttributes: [string, number][] = [
-    ["Background color", attributes.background],
-    ["Dick skin", attributes.skin],
-    ["Hat", attributes.hat],
-    ["Eyes", attributes.eye],
-    ["Mouse", attributes.mouse],
-    ["Clothe", attributes.clothe],
-    ["Arms", attributes.arm],
-    ["Special", attributes.special],
+  const mapTitleToAttributes: [string, string][] = [
+    ["Background color", getBackground(attributes.background).name],
+    ["Dick skin", getSkin(attributes.skin).name],
+    ["Hat", getHat(attributes.hat).name],
+    ["Eyes", getEye(attributes.eye).name],
+    ["Mouse", getMouse(attributes.mouse).name],
+    ["Clothe", getClothe(attributes.clothe).name],
+    ["Arms", getArm(attributes.arm).name],
+    ["Special", getSpecial(attributes.special).name],
   ]
   return mapTitleToAttributes
     .filter(([, value]) => !!value)
