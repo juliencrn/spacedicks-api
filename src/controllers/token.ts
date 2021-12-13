@@ -6,8 +6,8 @@ import { RPC_URL, SITE_URL } from '../config'
 import generateSVG, { TraitName } from '../svg'
 import { isNumeric, validateAttributes } from './utils'
 import { uploadSVG } from '../ipfs.storage'
-import CryptoDicks from '../contracts/CryptoDicks.json'
-import { getArm, getBackground, getClothe, getEye, getHat, getMouse, getSkin, getSpecial } from '../svg/utils'
+import SpaceDicks from '../contracts/SpaceDicks.json'
+import { getArm, getBackground, getClothe, getEye, getHat, getMouth, getSkin, getSpecial } from '../svg/utils'
 
 // Instantiate the web3
 const web3Provider = new Web3.providers.HttpProvider(RPC_URL)
@@ -24,9 +24,9 @@ export async function getTokenMetadata(req: Request, res: Response) {
 
     // Instantiate the contract
     const networkId = await web3.eth.net.getId();
-    const networkData = (CryptoDicks.networks as Record<string, { address: string }>)[networkId];
+    const networkData = (SpaceDicks.networks as Record<string, { address: string }>)[networkId];
     const contract = new web3.eth.Contract(
-      CryptoDicks.abi as AbiItem | AbiItem[],
+      SpaceDicks.abi as AbiItem | AbiItem[],
       networkData.address
     )
 
@@ -45,7 +45,7 @@ export async function getTokenMetadata(req: Request, res: Response) {
 
     // https://docs.opensea.io/docs/metadata-standards
     res.json({
-      name: `CryptoDicks #${tokenId}`,
+      name: `SpaceDicks #${tokenId}`,
       image: imageUrl,
       external_url: SITE_URL,
       attributes: formatAttributes(attributes)
@@ -64,7 +64,7 @@ function formatAttributes(attributes: Record<TraitName, number>): OpenSeaAttribu
     ["Dick skin", getSkin(attributes.skin).name],
     ["Hat", getHat(attributes.hat).name],
     ["Eyes", getEye(attributes.eye).name],
-    ["Mouse", getMouse(attributes.mouse).name],
+    ["Mouth", getMouth(attributes.mouth).name],
     ["Clothe", getClothe(attributes.clothe).name],
     ["Arms", getArm(attributes.arm).name],
     ["Special", getSpecial(attributes.special).name],

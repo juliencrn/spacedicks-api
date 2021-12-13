@@ -6,7 +6,7 @@ export const isDev = NODE_ENV === "development"
 // Website
 export const SITE_URL = isDev
   ? "http://localhost:3000"
-  : "https://cryptodicks.netlify.app"
+  : "https://spacedicks.com"
 
 // SVG gen. config
 export const buildSize = 96;
@@ -16,7 +16,7 @@ export const displaySize = 600;
 export const PORT = process.env.PORT || 3001;
 export const API_URL = isDev
   ? `http://localhost:${PORT}`
-  : "https://cryptodicks.herokuapp.com"
+  : "https://spacedicks.herokuapp.com"
 
 // Web3 config
 // mainnet | mumbai

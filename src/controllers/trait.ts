@@ -7,7 +7,7 @@ export function getTrait(req: Request, res: Response) {
   try {
     const { trait, value } = req.params
 
-    const allTraits: TraitName[] = ["background", "skin", "hat", "eye", "mouse", "clothe", "arm", "special"]
+    const allTraits: TraitName[] = ["background", "skin", "hat", "eye", "mouth", "clothe", "arm", "special"]
     if (!allTraits.includes(trait as TraitName)) {
       return res.status(500).json({ error: "Trait not found" })
     }

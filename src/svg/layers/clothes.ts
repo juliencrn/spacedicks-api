@@ -10,7 +10,7 @@ export const rainbowCape: Accessory = {
   name: "Rainbow cape",
   value: `<path id="rainbow-cape" d="M206.511,148.726l-19.329,29.2,10.6,2.564h31.268l9.353-2.564-16.91-29.2Z" transform="translate(-166 -114)" fill="url(#rainbow-vertical)"/>`,
   defs: ["rainbow-vertical"],
-  attr: ['below-dick']
+  belowDick: true
 }
 
 export const clothes: Accessory[] = [

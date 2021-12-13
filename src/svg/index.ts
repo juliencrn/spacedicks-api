@@ -1,9 +1,9 @@
-import { deduplicateByName, extractChildren, extractDefs, getArm, getBackground, getClothe, getEye, getHat, getMouse, getSkin, getSpecial, getTitle, isBelow, printAccessoryList, revolveValue, SVG } from "./utils"
+import { deduplicateByName, extractChildren, extractDefs, getArm, getBackground, getClothe, getEye, getHat, getMouth, getSkin, getSpecial, getTitle, isBelow, printAccessoryList, revolveValue, SVG } from "./utils"
 import { createBackground } from "./layers/backgrounds"
 import { createDick } from "./layers/skins"
 import { Accessory } from "./types"
 
-export type TraitName = "background" | "skin" | "hat" | "eye" | "mouse" | "clothe" | "arm" | "special"
+export type TraitName = "background" | "skin" | "hat" | "eye" | "mouth" | "clothe" | "arm" | "special"
 export type AttributesObject = {
   [key in TraitName | "id"]: number
 }
@@ -12,22 +12,22 @@ export type Accessories = {
 }
 
 // Return an sorted array of svg ready to print
-function createSVGBody({ background, skin, hat, eye, mouse, clothe, arm, special }: Accessories): [string, string[]] {
+function createSVGBody({ background, skin, hat, eye, mouth, clothe, arm, special }: Accessories): [string, string[]] {
   // Get extraAccessories
   const extraAccessories = deduplicateByName(
-    [background, skin, hat, eye, mouse, clothe, arm, special].flatMap(extractChildren)
+    [background, skin, hat, eye, mouth, clothe, arm, special].flatMap(extractChildren)
   )
 
   // From accessories, fill the deps (filters, linear-gradients...)
   const defsSVG = extractDefs({
     fromRegex: [background, skin],
-    fromDefs: [hat, eye, mouse, clothe, arm, special, ...extraAccessories]
+    fromDefs: [hat, eye, mouth, clothe, arm, special, ...extraAccessories]
   })
 
   // Create hat with optional params
   let hatSVG = revolveValue(hat, skin.value)
   let eyeSVG = revolveValue(eye)
-  let mouseSVG = revolveValue(mouse)
+  let mouthSVG = revolveValue(mouth)
   let clotheSVG = revolveValue(clothe)
   let armSVG = revolveValue(arm, skin.value)
   let specialSVG = revolveValue(special)
@@ -48,7 +48,7 @@ function createSVGBody({ background, skin, hat, eye, mouse, clothe, arm, special
     specialSVG,
     printAccessoryList(aboveDick),
     eyeSVG,
-    mouseSVG,
+    mouthSVG,
     !isBelow(clothe) ? clotheSVG : "",
     !isBelow(hat) ? hatSVG : "",
   ]]
@@ -61,7 +61,7 @@ export default function generateSVG(options: AttributesObject): string {
     skin: getSkin(options.skin),
     hat: getHat(options.hat),
     eye: getEye(options.eye),
-    mouse: getMouse(options.mouse),
+    mouth: getMouth(options.mouth),
     clothe: getClothe(options.clothe),
     arm: getArm(options.arm),
     special: getSpecial(options.special),
@@ -82,7 +82,7 @@ export function generateTraitSVG(trait: TraitName, value: number): string {
   let skin = getSkin(0)
   let hat = emptyElement
   let eye = emptyElement
-  let mouse = emptyElement
+  let mouth = emptyElement
   let clothe = emptyElement
   let arm = emptyElement
   let special = emptyElement
@@ -101,8 +101,8 @@ export function generateTraitSVG(trait: TraitName, value: number): string {
     case "eye":
       eye = getEye(value)
       break;
-    case "mouse":
-      mouse = getMouse(value)
+    case "mouth":
+      mouth = getMouth(value)
       break;
     case "clothe":
       clothe = getClothe(value)
@@ -115,7 +115,7 @@ export function generateTraitSVG(trait: TraitName, value: number): string {
       break;
   }
 
-  const [defs, body] = createSVGBody({ background, skin, hat, eye, mouse, clothe, arm, special })
+  const [defs, body] = createSVGBody({ background, skin, hat, eye, mouth, clothe, arm, special })
 
   return SVG({
     title: trait + " " + value,

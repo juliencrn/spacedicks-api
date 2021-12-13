@@ -5,7 +5,7 @@ import { skins } from "./layers/skins";
 import { hats } from "./layers/hats";
 import { eyes } from "./layers/eyes";
 import { buildSize, displaySize } from "../config";
-import { mouses } from "./layers/mouses";
+import { mouths } from "./layers/mouths";
 import { clothes } from "./layers/clothes";
 import { specials } from "./layers/specials";
 import { arms } from "./layers/arms";
@@ -34,8 +34,8 @@ export function getEye(index: number): Accessory {
   return getAccessory(index, eyes, "eye")
 }
 
-export function getMouse(index: number): Accessory {
-  return getAccessory(index, mouses, "mouse")
+export function getMouth(index: number): Accessory {
+  return getAccessory(index, mouths, "mouth")
 }
 
 export function getClothe(index: number): Accessory {
@@ -75,7 +75,7 @@ export function extractChildren(accessory: Accessory): Accessory[] {
 }
 
 export function isBelow(accessory: Accessory): boolean {
-  return !!accessory.attr?.includes("below-dick")
+  return Boolean(accessory?.belowDick)
 }
 
 // From accessories, fill the deps (filters, linear-gradients...)

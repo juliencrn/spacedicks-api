@@ -15,7 +15,7 @@ app.use(cors())
 app.get('/token/:tokenId', getTokenMetadata)
 
 // Returns an SVG image
-app.get('/svg/:id/:background/:skin/:hat/:eye/:mouse/:clothe/:arm/:special', getSVG)
+app.get('/svg/:id/:background/:skin/:hat/:eye/:mouth/:clothe/:arm/:special', getSVG)
 
 // Return an part of svg to show an attribute in the frontend
 app.get('/svg-trait/:trait/:value', getTrait)

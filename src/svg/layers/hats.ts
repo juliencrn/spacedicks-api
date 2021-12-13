@@ -4,13 +4,13 @@ const cuteHairBelow: Accessory = {
   name: "Cute hair below",
   value: `<path id="cute-hair-below" transform="translate(-708 -139)" d="M755.155,162.085s-2.682-1.109-5.383,2.327-3.174,16.9-3.174,16.9l20.83,2.384,7.779,1.718,3.227-1.718-11.006-2.384-4.12-8.508-2.481-5.541Z" fill="url(#green-pink-purple-45)"/>`,
   defs: ["green-pink-purple-45"],
-  attr: ["below-dick"]
+  belowDick: true
 }
 const cuteHairCornBelow: Accessory = {
   name: "Cute hair corn below",
   value: `<path id="cute-hair-corn-below" d="M755.155,162.085s-2.682-1.109-5.383,2.327-4.242,18.56-4.242,18.56l20.941,1.746,8.661,1.19,3.677-2.213-11.381-2.384-4.12-8.508-2.481-5.541-2.6-15.3" transform="translate(-708 -139)" fill="url(#blue-pink-purple-45)"/>`,
   defs: ["blue-pink-purple-45"],
-  attr: ["below-dick"]
+  belowDick: true
 }
 
 const squareHairAbove: Accessory = {
@@ -39,13 +39,13 @@ const angelHalo: Accessory = {
   value: (
     `<circle id="angle-halo" cx="13" cy="13" r="13" transform="translate(35 17)" fill="#f4ffa0"/>`
   ),
-  attr: ["below-dick"],
+  belowDick: true,
 }
 
 const redHat: Accessory = {
   name: "Red hat",
   value: `<path id="red-hat" d="M0,0C23.894,2.091,28.557,6.126,20.5,12.406s-9.1,11.968-14.353,2.487S0,0,0,0Z" transform="matrix(0.53, -0.848, 0.848, 0.53, 36.862, 30.661)" fill="#f83d61"/>`,
-  attr: ["below-dick"],
+  belowDick: true,
 }
 
 const alienEyes: Accessory = {
@@ -146,7 +146,7 @@ const rainbowCorn: Accessory = {
     `<path id="rainbow-corn" d="M2.9.659a.1.1,0,0,1,.2,0L5.983,19.885a.1.1,0,0,1-.1.115H.116a.1.1,0,0,1-.1-.115Z" transform="translate(45 10)" fill="url(#rainbow-vertical)"/>`
   ),
   defs: ["rainbow-vertical"],
-  attr: ["below-dick"]
+  belowDick: true
 }
 
 const sunHair: Accessory = {
@@ -155,7 +155,7 @@ const sunHair: Accessory = {
     `<path id="sun-hair" d="M1265.417,385.168s3.012-1.382,3.663-4.056c.323-1.356-1.506-2.721,0-3.462,3.655-1.8,4.594,0,4.594,0s-4.287-5.258-1.484-5.513a6.66,6.66,0,0,1,4.818,1.7s-3.392-9.143,0-7.7a12.506,12.506,0,0,1,5.286,4.74s2.932-7.4,4.218-5.523,1.17,6.017,1.17,6.017,1.858-6.241,4.8-5.235a16.836,16.836,0,0,1,0,5.235s6.529-1.385,2.819,3.638c-.609,2,6.929,1.035,5.133,3.151s-1.732,2.522-1.732,2.522,7.442-.72,3.3,1.817c-1.059.649-1.37.731-1.195,1.664.213,1.525,3.636,3.606-.378,3.3-5.4-.413-3.619-1.9-3.619-1.59s.915,3.591-2.073,4.007.412,5.606-3.14,3.94-3.921-2.951-3.921-2.951-.846,7.952-2.426,7.535-2.962-8.081-2.962-8.081-.412,6.534-3.125,4.1a4.472,4.472,0,0,1-1.463-5.122s-5.15,4.632-4.781.578,1.317-5.243,1.317-5.243l4.253,4.664,6.761,2.032,4.487-1.454s2.74-2.377,2.74-3.4-1.821-7.772-1.821-7.772-5.323-2.577-5.718-2.229-4.25.825-5.147,2.229a32.508,32.508,0,0,0-2.091,5.451l.789,5.138-4.821-3.428-4.007,1.59Z" transform="translate(-1237 -352)" fill="url(#white-to-yellow-vertical)"/>`
   ),
   defs: ["white-to-yellow-vertical"],
-  attr: ["below-dick"]
+  belowDick: true
 }
 
 const kingCrown: Accessory = {
@@ -175,7 +175,7 @@ const squareHair: Accessory = {
     `<path id="square-hair" d="M983.185,168.707a7.857,7.857,0,0,0-9.083,2.709c-3.65,4.907-5.1,14.071-5.1,14.071l7.441,1.7h14.676l8.259-2.133-3.729-13.641-5.322-3.957s-4.75-2.786-6.116-.939S983.185,168.707,983.185,168.707Z" transform="translate(-936 -147)" fill="url(#purple-green-vertical)"/>`
   ),
   defs: ["purple-green-vertical"],
-  attr: ["below-dick"],
+  belowDick: true,
   children: [squareHairAbove]
 }
 
@@ -183,7 +183,7 @@ const vision: Accessory = {
   name: "Vision",
   value: `<ellipse id="vision" cx="22.5" cy="13" rx="22.5" ry="13" transform="translate(26 15)" fill="url(#rainbow-circle-transparent)"/>`,
   defs: ["rainbow-circle-transparent"],
-  attr: ['below-dick']
+  belowDick: true
 }
 
 export const hats: Accessory[] = [
