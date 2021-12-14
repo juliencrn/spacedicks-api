@@ -6,7 +6,7 @@ export const isDev = NODE_ENV === "development"
 // Website
 export const SITE_URL = isDev
   ? "http://localhost:3000"
-  : "https://spacedicks.com"
+  : "https://spacedicks.xyz"
 
 // SVG gen. config
 export const buildSize = 96;
