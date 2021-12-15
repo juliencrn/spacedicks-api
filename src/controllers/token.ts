@@ -41,7 +41,7 @@ export async function getTokenMetadata(req: Request, res: Response) {
 
     // Generate the SVG string and upload it
     const svgString = generateSVG({ id: tokenId, ...attributes })
-    const imageUrl = await uploadSVG(svgString, `cryptoDicks-${tokenId}.svg`)
+    const imageUrl = await uploadSVG(svgString, `spacedicks-${tokenId}.svg`)
 
     // https://docs.opensea.io/docs/metadata-standards
     res.json({
