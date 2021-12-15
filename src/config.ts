@@ -20,7 +20,7 @@ export const API_URL = isDev
 
 // Web3 config
 // mainnet | mumbai
-const network = process.env.NETWORK || "mumbai"
+export const network = process.env.NETWORK || "mumbai"
 export const RPC_URL = isDev
   ? "http://localhost:8545"
   : `https://polygon-${network}.infura.io/v3/${process.env.INFURA_TOKEN}`

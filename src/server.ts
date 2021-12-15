@@ -6,6 +6,7 @@ import { getStats } from './controllers/stats'
 import { getSVG } from './controllers/svg'
 import { getTokenMetadata } from './controllers/token'
 import { getTrait } from './controllers/trait'
+import { getLastMinted } from './controllers/lastMinted'
 
 const app = express()
 
@@ -22,6 +23,9 @@ app.get('/svg-trait/:trait/:value', getTrait)
 
 // Returns some statistics about the collection
 app.get('/stats', getStats)
+
+// Returns the 4 last minted
+app.get("/last-minted", getLastMinted)
 
 // Start
 app.listen(PORT, () => {
