@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import compression from 'compression'
+import helmet from 'helmet'
 
 import { API_URL, PORT } from './config'
 import { getStats } from './controllers/stats'
@@ -11,6 +13,9 @@ import { getSupply } from './controllers/supply'
 
 const app = express()
 
+// protect against well known vulnerabilities
+app.use(helmet());
+app.use(compression());
 app.use(cors())
 
 // Returns OpenSea NFT Properties
